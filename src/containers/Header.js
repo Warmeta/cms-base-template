@@ -7,12 +7,15 @@ class Header extends Component {
 
   componentWillMount() {
     this.props.dispatch(actions.settings.fetchAll())
+    this.props.dispatch(actions.pages.fetchAll())
   }
 
   render(){
     return (
       <HeaderComponent
         settings={this.props.settings}
+        pages={this.props.pages}
+        isFetching={this.props.pages.isFetching || this.props.settings.isFetching}
         onLinkClick={(page) => this.props.dispatch(actions.pages.setCurrent(page))}
       />
     )

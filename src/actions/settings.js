@@ -1,6 +1,8 @@
 import { push } from 'react-router-redux'
 import actions from '../actions'
 
+const baseUrl = 'http://lafuerzadelcorazon.cms.coduxe.com'
+
 export function setFetching(isFetching = true) {
   return {
     type: 'SET_SETTINGS_FETCHING',
@@ -11,7 +13,7 @@ export function setFetching(isFetching = true) {
 export function fetchAll() {
   return (dispatch) => {
     dispatch(actions.settings.setFetching(true))
-    fetch('http://lafuerzadelcorazon.cms.coduxe.com/wp-json/wp/v2/settings')
+    fetch(`${baseUrl}/wp-json/wp/v2/settings`)
       .then((response) => response.json())
       .then((settings) => {
         dispatch(actions.settings.setSettings(settings))

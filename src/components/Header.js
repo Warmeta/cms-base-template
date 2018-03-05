@@ -6,6 +6,8 @@ import { CookiesBanner } from '../components'
 export default class extends Component {
   static propTypes = {
     settings: PropTypes.object.isRequired,
+    pages: PropTypes.object.isRequired,
+    isFetching: PropTypes.bool,
     onLinkClick: PropTypes.func
   }
 
@@ -23,7 +25,7 @@ export default class extends Component {
   }
 
   render() {
-    if(this.props.settings.isFetching || this.props.settings.settings == null) {
+    if(this.props.isFetching || this.props.settings.settings == null) {
       return null
     }
     return (

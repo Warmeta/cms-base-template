@@ -10,10 +10,6 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case 'SET_POSTS':
       return {...state, list: [...action.posts] }
-    case 'SET_SLIDES':
-      return {...state, slides: [...action.slides] }
-    case 'SET_BANNER':
-      return {...state, banner: [...action.banner] }
     case 'SET_CURRENT_POST':
       return {...state, current: action.current}
     case 'CLEAR_POSTS':

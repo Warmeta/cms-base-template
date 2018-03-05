@@ -10,6 +10,9 @@ export default class extends Component {
   }
 
   render() {
+    if(this.props.isFetching || this.props.posts == null) {
+      return null
+    }
     return (
       <div>
       	Home
