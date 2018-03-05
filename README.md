@@ -5,7 +5,7 @@ React boilerplate for web apps.
 ## Getting started
 
 ```sh
-git clone https://github.com/ibandominguez/react-starter.git
+git clone https://github.com/warmeta/cms-base-template.git
 cd react-starter
 npm install
 npm run dev
