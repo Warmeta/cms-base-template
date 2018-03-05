@@ -52,8 +52,8 @@ class App extends Component {
             <Header />
             <Switch>
               <Route exact path={'/'} component={Home} />
-              <Route path={'/pages/:slug/:id'} component={SinglePage} />
-              <Route path={'/posts/:slug/:id'} component={SinglePost} />
+              <Route path={'/pages/:slug'} component={SinglePage} />
+              <Route path={'/posts/:slug'} component={SinglePost} />
               <Route component={NotFound} />
             </Switch>
             <Footer />

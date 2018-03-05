@@ -5,12 +5,12 @@ import actions from '../actions'
 
 class SinglePage extends Component {
   componentWillMount() {
-    let pageId = this.props.match.params.id
+    let pageSlug = this.props.match.params.slug
     if(this.props.pages.list.length === 0) {
       this.props.dispatch(actions.pages.fetchAll())
     }
     if(!this.props.pages.current) {
-      this.props.dispatch(actions.pages.fetchPage(pageId))
+      this.props.dispatch(actions.pages.fetchPage(pageSlug))
     }
   }
 

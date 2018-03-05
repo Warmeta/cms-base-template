@@ -5,12 +5,12 @@ import actions from '../actions'
 
 class SinglePost extends Component {
   componentWillMount() {
-    let postId = this.props.match.params.id
+    let postSlug = this.props.match.params.slug
     if(this.props.posts.list.length === 0) {
       this.props.dispatch(actions.posts.fetchAll())
     }
     if(!this.props.posts.current) {
-      this.props.dispatch(actions.posts.fetchPost(postId))
+      this.props.dispatch(actions.posts.fetchPost(postSlug))
     }
   }
 

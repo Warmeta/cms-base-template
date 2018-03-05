@@ -5,7 +5,7 @@ const baseUrl = 'http://lafuerzadelcorazon.cms.coduxe.com'
 
 export function setCurrent(posts) {
   return (dispatch) => {
-    const route = posts ? `/posts/${posts.slug}/${posts.id}` : `/`
+    const route = posts ? `/posts/${posts.slug}` : `/`
     dispatch({ type: 'SET_CURRENT_POST', current: posts })
     dispatch(push(route))
   }
@@ -18,13 +18,13 @@ export function setFetching(isFetching = true) {
   }
 }
 
-export function fetchPost(id) {
+export function fetchPost(slug) {
   return (dispatch) => {
     dispatch(actions.posts.setFetching(true))
-    fetch(`${baseUrl}/wp-json/wp/v2/posts/${id}?_embed`)
+    fetch(`${baseUrl}/wp-json/wp/v2/posts?slug=${slug}&_embed`)
       .then((response) => response.json())
       .then((posts) => {
-        dispatch(actions.posts.setCurrent(posts))
+        dispatch(actions.posts.setCurrent(posts[0]))
         dispatch(actions.posts.setFetching(false))
       }
   )}

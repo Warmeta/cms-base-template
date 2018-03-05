@@ -5,7 +5,7 @@ const baseUrl = 'http://lafuerzadelcorazon.cms.coduxe.com'
 
 export function setCurrent(page) {
   return (dispatch) => {
-    const route = page ? `/pages/${page.slug}/${page.id}` : '/'
+    const route = page ? `/pages/${page.slug}` : '/'
     dispatch({ type: 'SET_CURRENT_PAGE', current: page })
     dispatch(push(route))
   }
@@ -33,13 +33,13 @@ export function fetchAll() {
   }
 }
 
-export function fetchPage(id){
+export function fetchPage(slug){
   return (dispatch) => {
     dispatch(actions.pages.setFetching(true))
-    fetch(`${baseUrl}/wp-json/wp/v2/pages/${id}?_embed`)
+    fetch(`${baseUrl}/wp-json/wp/v2/pages?slug=${slug}&_embed`)
       .then((response) => response.json())
-      .then((page) => {
-        dispatch(actions.pages.setCurrent(page))
+      .then((pages) => {
+        dispatch(actions.pages.setCurrent(pages[0]))
         dispatch(actions.pages.setFetching(false))
       }).catch((error) => {
         dispatch(actions.pages.setFetching(false))

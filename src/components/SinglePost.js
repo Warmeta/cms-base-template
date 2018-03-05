@@ -12,6 +12,7 @@ export default class extends Component {
     return (
       <div>
         SinglePost
+        { this.props.slug }
       </div>
     )
   }

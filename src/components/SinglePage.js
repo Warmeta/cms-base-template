@@ -11,6 +11,7 @@ export default class extends Component {
     return (
       <div>
         SinglePage
+        { this.props.slug }
       </div>
     )
   }
