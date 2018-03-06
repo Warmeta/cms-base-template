@@ -3,13 +3,6 @@ import actions from '../actions'
 
 const baseUrl = 'http://lafuerzadelcorazon.cms.coduxe.com'
 
-export function setFetching(isFetching = true) {
-  return {
-    type: 'SET_SETTINGS_FETCHING',
-    isFetching
-  }
-}
-
 export function fetchAll() {
   return (dispatch) => {
     dispatch(actions.settings.setFetching(true))
@@ -22,6 +15,13 @@ export function fetchAll() {
         dispatch(actions.settings.setFetching(false))
         console.log(error)
     })
+  }
+}
+
+export function setFetching(isFetching = true) {
+  return {
+    type: 'SET_SETTINGS_FETCHING',
+    isFetching
   }
 }
 

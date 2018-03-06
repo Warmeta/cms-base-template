@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
     case 'SET_CURRENT_POST':
       return {...state, current: action.current}
     case 'CLEAR_POSTS':
-      return {...state, list: [], slides: [], banner: null, page: 1, perPage: 8}
+      return {...state, list: [], page: 1, perPage: 8}
     case 'SET_POSTS_FETCHING':
       return { ...state, isFetching: action.isFetching }
     case 'CLEAR_CURRENT_POST':
