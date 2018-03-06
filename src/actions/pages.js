@@ -3,21 +3,6 @@ import actions from '../actions'
 
 const baseUrl = 'http://lafuerzadelcorazon.cms.coduxe.com'
 
-export function setCurrent(page) {
-  return (dispatch) => {
-    const route = page ? `/pages/${page.slug}` : '/'
-    dispatch({ type: 'SET_CURRENT_PAGE', current: page })
-    dispatch(push(route))
-  }
-}
-
-export function setFetching(isFetching = true) {
-  return {
-    type: 'SET_PAGES_FETCHING',
-    isFetching
-  }
-}
-
 export function fetchAll() {
   return (dispatch) => {
     dispatch(actions.pages.setFetching(true))
@@ -48,9 +33,31 @@ export function fetchPage(slug){
   }
 }
 
+export function setCurrent(page) {
+  return (dispatch) => {
+    const route = page ? `/pages/${page.slug}` : '/'
+    dispatch({ type: 'SET_CURRENT_PAGE', current: page })
+    dispatch(push(route))
+  }
+}
+
+export function setFetching(isFetching = true) {
+  return {
+    type: 'SET_PAGES_FETCHING',
+    isFetching
+  }
+}
+
 export function setAll(pages) {
   return {
     type: 'SET_PAGES',
     pages
+  }
+}
+
+export function clearAll() {
+  return {
+    type: 'CLEAR_PAGES',
+    list: []
   }
 }
