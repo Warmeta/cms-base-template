@@ -27,7 +27,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Minar Criptos',
+      title: 'Base Template',
       inject: false,
       mobile: true,
       minify: {
