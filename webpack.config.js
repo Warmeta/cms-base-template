@@ -43,7 +43,7 @@ module.exports = {
       baseHref: '/',
       googleAnalytics: { trackingId: 'UA-XXXX-XX', pageViewOnLoad: true },
       meta: [],
-      links: ['./src/vendors/theme.css'],
+      links: ['./src/vendors/theme.css', 'node_modules/bootstrap/dist/css/bootstrap.min.css'],
       scripts: ['./src/vendors/theme.js'],
       window: { env: {} }
     }),
